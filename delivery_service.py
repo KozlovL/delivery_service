@@ -1,7 +1,5 @@
-# ID посылки - 119449228
-"""
-Программа для оптимальной перевозки роботов с использованием
-двухуказательного метода.
+# ID посылки - 119527642
+"""Оптимизация перевозки роботов.
 
 Название файла:
     robot_transport.py
@@ -45,7 +43,8 @@ from typing import List
 
 
 def two_pointer_func(masses: List[int], limit: int) -> int:
-    """
+    """Функция с двумя указателями.
+
     Функция для нахождения минимального количества транспортных платформ для
     перевозки роботов.
 
@@ -65,17 +64,14 @@ def two_pointer_func(masses: List[int], limit: int) -> int:
     while right_pointer >= 0 and left_pointer <= right_pointer:
         if masses[left_pointer] + masses[right_pointer] <= limit:
             left_pointer += 1
-            right_pointer -= 1
-        else:
-            right_pointer -= 1
+        right_pointer -= 1
         count += 1
 
     return count
 
 
 def main():
-    """
-    Главная функция для запуска программы.
+    """Главная функция для запуска программы.
 
     Ввод:
         - Список весов роботов (через пробел).
@@ -85,12 +81,10 @@ def main():
         - Минимальное количество платформ, необходимых для
         перевозки всех роботов.
     """
-    masses = list(map(int, input().split()))
-    limit = int(input())
-
-    result = two_pointer_func(masses, limit)
-
-    print(result)
+    masses_array = [int(value) for value in input().split()]
+    limit_value = int(input())
+    result_number = two_pointer_func(masses_array, limit_value)
+    print(result_number)
 
 
 if __name__ == "__main__":
